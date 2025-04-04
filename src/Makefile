@@ -39,11 +39,24 @@ ECHO    = $(Q)@echo
 MAKE    = $(Q)make
 CAT     = $(Q)cat
 TFLITE2C = tflite2c.py
+MKROMFS = mkromfs.py
 
 # Targets
-TARGET ?= OPENMV4
 OPENMV = openmv
 FIRMWARE = firmware
+
+# Jlink config
+JLINK_INTERFACE ?= swd
+JLINK_SPEED ?= 100000
+JLINK_DEVICE ?= unspecified
+JLINK_GDB_SERVER ?= /opt/JLink/JLinkGDBServer
+
+ifeq ($(TARGET),)
+  ifneq ($(MAKECMDGOALS),clean)
+    $(error Invalid or no TARGET specified)
+  endif
+  TARGET=OPENMV4
+endif
 
 # Directories
 TOP_DIR=$(shell pwd)
@@ -207,3 +220,11 @@ include $(OMV_COMMON_DIR)/export.mk
 
 clean:
 	$(RM) -fr $(BUILD)
+
+jlink:
+	${JLINK_GDB_SERVER} -speed ${JLINK_SPEED} -nogui 1 \
+        -if ${JLINK_INTERFACE} -halt -cpu cortex-m \
+		-device ${JLINK_DEVICE} -novd ${JLINK_SCRIPT}
+
+submodules:
+	$(MAKE) -C $(MICROPY_DIR)/ports/$(PORT) BOARD=$(TARGET) submodules

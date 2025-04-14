@@ -125,7 +125,7 @@ jobs:
     - name: '↓ Download release'
       uses: robinraju/release-downloader@v1
       with:
-        repository: 'openmv/openmv'
+        repository: 'HaqqiHaziq/testprog'
         tag: 'development'
         fileName: '*.zip'
         extract: false

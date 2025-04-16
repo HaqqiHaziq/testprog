@@ -137,14 +137,14 @@
 #define OMV_FB_SIZE                           (448K) // FB memory: header + VGA/GS image
 #define OMV_FB_ALLOC_SIZE                     (64K) // minimum fb alloc size
 #define OMV_JPEG_MEMORY                       SRAM4 // JPEG buffer memory.
-#define OMV_JPEG_SIZE                         (32K) // IDE JPEG buffer (header + data).
-#define OMV_VOSPI_MEMORY                      SRAM4 // VoSPI buffer memory.
+#define OMV_JPEG_SIZE                         (64K) // IDE JPEG buffer (header + data).
+#define OMV_VOSPI_MEMORY                      SRAM1 // VoSPI buffer memory.
 #define OMV_VOSPI_SIZE                        (32K)
 #define OMV_DMA_MEMORY                        SRAM2 // Misc DMA buffers memory.
 #define OMV_GC_BLOCK0_MEMORY                  SRAM1 // Main GC block.
-#define OMV_GC_BLOCK0_SIZE                    (26K)
+#define OMV_GC_BLOCK0_SIZE                    (24K)
 #define OMV_GC_BLOCK1_MEMORY                  SRAM1 // Extra GC block 0.
-#define OMV_GC_BLOCK1_SIZE                    (241K)
+#define OMV_GC_BLOCK1_SIZE                    (211K)
 #define OMV_MSC_BUF_SIZE                      (2K)  // USB MSC bot data
 #define OMV_LINE_BUF_SIZE                     (3 * 1024) // Image line buffer round(640 * 2BPP * 2 buffers).
 

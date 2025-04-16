@@ -133,9 +133,9 @@
 #define OMV_FFS_MEMORY                        DTCM  // Flash filesystem cache memory
 #define OMV_STACK_MEMORY                      ITCM  // stack memory
 #define OMV_STACK_SIZE                        (64K)
-#define OMV_FB_MEMORY                         FLASH  // Framebuffer, fb_alloc
-#define OMV_FB_SIZE                           (448K) // FB memory: header + VGA/GS image
-#define OMV_FB_ALLOC_SIZE                     (64K) // minimum fb alloc size
+#define OMV_FB_MEMORY                         SRAM0  // Framebuffer, fb_alloc
+#define OMV_FB_SIZE                           (467K) // FB memory: header + VGA/GS image
+#define OMV_FB_ALLOC_SIZE                     (45K) // minimum fb alloc size
 #define OMV_JPEG_MEMORY                       SRAM4 // JPEG buffer memory.
 #define OMV_JPEG_SIZE                         (64K) // IDE JPEG buffer (header + data).
 #define OMV_VOSPI_MEMORY                      SRAM1 // VoSPI buffer memory.
